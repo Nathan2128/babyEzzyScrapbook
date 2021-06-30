@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-xs-10">
+        <app-memory-edit></app-memory-edit>
+        <hr>
+        <ul class="list-group">
+            <a 
+            *ngFor="let memory of memoryLog; let i = index"
+            style="cursor: pointer"
+            class="list-group-item"
+            (click)="onEditMemory(i)">
+            {{ memory.name }}; {{memory.description}} {{ memory.date| date }}
+            </a>
+        </ul>
+    </div>
+</div>

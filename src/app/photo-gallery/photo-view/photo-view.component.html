@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-xs-12">
+        <img 
+        [src]="photo.imagePath"
+        alt="{{photo.name}}"
+        class="img-responsive"
+        style="max-height: 600px;">
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h1>{{photo.name}}</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="btn-group" appDropdown>
+            <button type="button" class="btn btn-primary dropdown-toggle">
+                Manage Post <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Add post to milestones</a></li>
+                <li><a style="cursor: pointer" (click)="onEditPhoto()">Edit post</a></li>
+                <li><a (click)="onDeletePhoto()">Delete post</a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        {{photo.description}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        Comments
+    </div>
+</div>

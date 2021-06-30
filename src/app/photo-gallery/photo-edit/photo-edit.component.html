@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form [formGroup]="photoForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-xs-12">
+                    <button type="submit" [disabled]="!photoForm.valid" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input 
+                            type="text"
+                            id="name"
+                            formControlName="name"
+                            class="form-control"
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="desc">Description</label>
+                        <textarea
+                        name="desc"
+                        id="desc"
+                        formControlName="desc"
+                        class="form-control"
+                        rows="6"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="babyPicPath">Image URL</label>
+                        <input 
+                            type="text"
+                            id="babyPicPath"
+                            formControlName="babyPicPath"
+                            class="form-control"
+                            #imgPath
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <img [src]="imgPath.value" class="img-responsive">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12" formArrayName="comments">
+                    <div class="row" *ngFor="let commentControl of controls; let i = index"
+                    [formGroupName]="i"
+                    style="margin-top: 10px;">
+                        <div class="col-xs-8">
+                            <input 
+                                type="text"
+                                class="form-control"
+                                formControlName="comment"
+                            >
+                        </div>
+                        <div class="col-xs-4">
+                            <button
+                                type="button" 
+                                class="btn btn-danger"
+                                (click)="onDeleteComment()">Delete</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button 
+                                type="button"
+                                class="btn btn-success"
+                                (click)="onAddComment()">Add comment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
